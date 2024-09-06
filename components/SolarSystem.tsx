@@ -8,21 +8,24 @@ import OrbitLine from "./OrbitLine";
 import Belt from "./Belt";
 import { Suspense } from "react";
 import Stars from "./Stars";
-import mercuryTexture from '@/components/mercurymap.jpg';
-import marsTexture from '@/components/marsmap1k.jpg';
-import venusTexture from '@/components/venusmap.jpg';
-import earthTexture from '@/components/earthmap1k.jpg';
-import jupiterTexture from '@/components/jupitermap.jpg';
-import saturnTexture from '@/components/saturnmap.jpg';
-import uranusTexture from '@/components/uranusmap.jpg';
-import neptuneTexture from '@/components/neptunemap.jpg';
+import mercuryTexture from "@/components/mercurymap.jpg";
+import marsTexture from "@/components/marsmap1k.jpg";
+import venusTexture from "@/components/venusmap.jpg";
+import earthTexture from "@/components/earthmap1k.jpg";
+import jupiterTexture from "@/components/jupitermap.jpg";
+import saturnTexture from "@/components/saturnmap.jpg";
+import uranusTexture from "@/components/uranusmap.jpg";
+import neptuneTexture from "@/components/neptunemap.jpg";
 
 const SolarSystem = () => {
   const moonSpeed: number = 250;
   const planetSpeed: number = 50;
 
   return (
-    <Canvas>
+    <Canvas
+      style={{ width: "100vw", height: "100vh" }}
+      camera={{ position: [0, 60, 150], fov: 75 }}
+    >
       <Suspense fallback={null}>
         <ambientLight intensity={0.5} />
         <pointLight position={[0, 0, 0]} intensity={2} />
@@ -40,7 +43,6 @@ const SolarSystem = () => {
           speed={0.01 * planetSpeed}
           orbitRadius={10}
           rotationSpeed={0.03}
-          
         />
         <OrbitLine orbitRadius={10} />
 
@@ -75,8 +77,8 @@ const SolarSystem = () => {
         <OrbitLine orbitRadius={30} />
 
         <Planet
-    textureUrl={marsTexture}
-size={0.75}
+          textureUrl={marsTexture}
+          size={0.75}
           speed={0.004 * planetSpeed}
           orbitRadius={40}
           rotationSpeed={0.02}
@@ -230,7 +232,7 @@ size={0.75}
         />
         <Stars />
 
-        <OrbitControls />
+        <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
       </Suspense>
     </Canvas>
   );
