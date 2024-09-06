@@ -1,0 +1,33 @@
+import { Line } from '@react-three/drei';
+import { useMemo } from 'react';
+import * as THREE from "three";
+
+interface OrbitLineProps {
+  orbitRadius: number;
+}
+
+const OrbitLine: React.FC<OrbitLineProps> = ({ orbitRadius }) => {
+  const points = useMemo(() => {
+    const segments = 64;
+    const curve = new THREE.EllipseCurve(
+      0, 0, // Center
+      orbitRadius, orbitRadius, // X and Y radii
+      0, 2 * Math.PI, // Start and end angle
+      false // Clockwise
+    );
+    const points = curve.getPoints(segments).map(p => new THREE.Vector3(p.x, 0, p.y));
+    return points;
+  }, [orbitRadius]);
+
+  return (
+    <Line
+      points={points}
+      color="white"
+      lineWidth={1}
+      opacity={0.5}
+      transparent
+    />
+  );
+};
+
+export default OrbitLine;
