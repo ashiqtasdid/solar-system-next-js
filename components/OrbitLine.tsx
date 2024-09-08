@@ -10,10 +10,10 @@ const OrbitLine: React.FC<OrbitLineProps> = ({ orbitRadius }) => {
   const points = useMemo(() => {
     const segments = 64;
     const curve = new THREE.EllipseCurve(
-      0, 0, // Center
+      0, 0,
       orbitRadius, orbitRadius, // X and Y radii
-      0, 2 * Math.PI, // Start and end angle
-      false // Clockwise
+      0, 2 * Math.PI,
+      false 
     );
     const points = curve.getPoints(segments).map(p => new THREE.Vector3(p.x, 0, p.y));
     return points;

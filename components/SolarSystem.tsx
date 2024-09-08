@@ -30,13 +30,11 @@ const SolarSystem = () => {
         <ambientLight intensity={0.5} />
         <pointLight position={[0, 0, 0]} intensity={2} />
 
-        {/* Sun */}
         <mesh>
           <sphereGeometry args={[5, 32, 32]} />
           <meshBasicMaterial color="yellow" />
         </mesh>
 
-        {/* Planets */}
         <Planet
           textureUrl={mercuryTexture}
           size={0.5}
@@ -62,16 +60,15 @@ const SolarSystem = () => {
           orbitRadius={30}
           rotationSpeed={0.03}
         >
-          {/* Earth with Moon */}
           <group>
             <Moon
               color="gray"
               size={0.25}
-              distance={3} // Moon's orbit distance from Earth
-              speed={0.01 * moonSpeed} // Moon's orbit speed
-              planetRadius={1} // Radius of Earth
+              distance={3} 
+              speed={0.01 * moonSpeed} 
+              planetRadius={1} 
             />
-            <OrbitLine orbitRadius={3} /> {/* Orbit line for Moon */}
+            <OrbitLine orbitRadius={3} /> 
           </group>
         </Planet>
         <OrbitLine orbitRadius={30} />
@@ -83,35 +80,33 @@ const SolarSystem = () => {
           orbitRadius={40}
           rotationSpeed={0.02}
         >
-          {/* Mars with Moons */}
           <group>
             <Moon
               color="gray"
               size={0.1}
-              distance={1.5} // Orbit distance from Mars
-              speed={0.015 * moonSpeed} // Orbit speed
-              planetRadius={0.75} // Radius of Mars
+              distance={1.5}
+              speed={0.015 * moonSpeed}
+              planetRadius={0.75} 
             />
             <Moon
               color="gray"
               size={0.08}
-              distance={2.5} // Orbit distance from Mars
-              speed={0.01} // Orbit speed
-              planetRadius={0.75} // Radius of Mars
+              distance={2.5} 
+              speed={0.01} 
+              planetRadius={0.75} 
             />
-            <OrbitLine orbitRadius={1.5} /> {/* Orbit line for Phobos */}
-            <OrbitLine orbitRadius={2.5} /> {/* Orbit line for Deimos */}
+            <OrbitLine orbitRadius={1.5} /> 
+            <OrbitLine orbitRadius={2.5} /> 
           </group>
         </Planet>
         <OrbitLine orbitRadius={40} />
 
-        {/* Asteroid Belt */}
         <Belt
           innerRadius={45}
           outerRadius={55}
           count={2500}
           color="gray"
-          rotationSpeed={0.001} // Rotation speed around the Sun
+          rotationSpeed={0.001} 
         />
 
         <Planet
@@ -121,24 +116,23 @@ const SolarSystem = () => {
           orbitRadius={60 + 8}
           rotationSpeed={0.02}
         >
-          {/* Jupiter with Moons */}
           <group>
             <Moon
               color="gray"
               size={0.3}
-              distance={5} // Orbit distance from Jupiter
-              speed={0.007 * moonSpeed} // Orbit speed
-              planetRadius={2} // Radius of Jupiter
+              distance={5} 
+              speed={0.007 * moonSpeed} 
+              planetRadius={2} 
             />
             <Moon
               color="gray"
               size={0.25}
-              distance={7} // Orbit distance from Jupiter
-              speed={0.005 * moonSpeed} // Orbit speed
-              planetRadius={2} // Radius of Jupiter
+              distance={7} 
+              speed={0.005 * moonSpeed}
+              planetRadius={2} 
             />
-            <OrbitLine orbitRadius={5} /> {/* Orbit line for Io */}
-            <OrbitLine orbitRadius={7} /> {/* Orbit line for Europa */}
+            <OrbitLine orbitRadius={5} />
+            <OrbitLine orbitRadius={7} /> 
           </group>
         </Planet>
         <OrbitLine orbitRadius={60 + 8} />
@@ -150,24 +144,23 @@ const SolarSystem = () => {
           orbitRadius={70 + 8}
           rotationSpeed={0.01}
         >
-          {/* Saturn with Moons */}
           <group>
             <Moon
               color="gray"
               size={0.4}
-              distance={6} // Orbit distance from Saturn
-              speed={0.005 * moonSpeed} // Orbit speed
-              planetRadius={1.7} // Radius of Saturn
+              distance={6} 
+              speed={0.005 * moonSpeed} 
+              planetRadius={1.7} 
             />
             <Moon
               color="gray"
               size={0.2}
-              distance={8} // Orbit distance from Saturn
-              speed={0.003 * moonSpeed} // Orbit speed
-              planetRadius={1.7} // Radius of Saturn
+              distance={8} 
+              speed={0.003 * moonSpeed} 
+              planetRadius={1.7} 
             />
-            <OrbitLine orbitRadius={6} /> {/* Orbit line for Titan */}
-            <OrbitLine orbitRadius={8} /> {/* Orbit line for Rhea */}
+            <OrbitLine orbitRadius={6} />
+            <OrbitLine orbitRadius={8} />
           </group>
         </Planet>
         <OrbitLine orbitRadius={70 + 8} />
@@ -179,24 +172,23 @@ const SolarSystem = () => {
           orbitRadius={80 + 8}
           rotationSpeed={0.002}
         >
-          {/* Uranus with Moons */}
           <group>
             <Moon
               color="gray"
               size={0.25}
-              distance={4} // Orbit distance from Uranus
-              speed={0.005 * moonSpeed} // Orbit speed
-              planetRadius={1.4} // Radius of Uranus
+              distance={4} 
+              speed={0.005 * moonSpeed} 
+              planetRadius={1.4} 
             />
             <Moon
               color="gray"
               size={0.2}
-              distance={6} // Orbit distance from Uranus
-              speed={0.003 * moonSpeed} // Orbit speed
-              planetRadius={1.4} // Radius of Uranus
+              distance={6} 
+              speed={0.003 * moonSpeed} 
+              planetRadius={1.4} 
             />
-            <OrbitLine orbitRadius={4} /> {/* Orbit line for Titania */}
-            <OrbitLine orbitRadius={6} /> {/* Orbit line for Oberon */}
+            <OrbitLine orbitRadius={4} /> 
+            <OrbitLine orbitRadius={6} /> 
           </group>
         </Planet>
         <OrbitLine orbitRadius={80 + 8} />
@@ -208,27 +200,25 @@ const SolarSystem = () => {
           orbitRadius={90 + 8}
           rotationSpeed={0.02}
         >
-          {/* Neptune with Moon */}
           <group>
             <Moon
               color="gray"
               size={0.3}
-              distance={5} // Orbit distance from Neptune
-              speed={0.007 * moonSpeed} // Orbit speed
-              planetRadius={1.3} // Radius of Neptune
+              distance={5} 
+              speed={0.007 * moonSpeed} 
+              planetRadius={1.3} 
             />
-            <OrbitLine orbitRadius={5} /> {/* Orbit line for Triton */}
+            <OrbitLine orbitRadius={5} />
           </group>
         </Planet>
         <OrbitLine orbitRadius={90 + 8} />
 
-        {/* Kuiper Belt */}
         <Belt
           innerRadius={110}
           outerRadius={140}
           count={10000}
           color="lightblue"
-          rotationSpeed={0.0005} // Rotation speed around the Sun
+          rotationSpeed={0.0005} 
         />
         <Stars />
 

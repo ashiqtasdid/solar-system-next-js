@@ -202,38 +202,42 @@ const Nav: React.FC = () => {
 
           {/* Scrollable asteroid list with animations for each item */}
           <ScrollArea className="h-[65vh] w-full">
-            <div className="space-y-4">
-              {[
-                "2024 RZ2",
-                "2024 RL3",
-                "2024 RR3",
-                "2018 QE",
-                "2024 RN1",
-                "2024 RN3",
-                "2024 RF3",
-                "2024 RQ",
-                "2024 ON",
-                "2024 RO2",
-                "2016 VA",
-                "2024 RQ5",
-              ].map((asteroid, index) => (
-                <motion.div
-                  key={asteroid}
-                  className="hover:bg-white bg-opacity-60 hover:text-black cursor-pointer rounded-xl py-4 text-lg text-white"
-                  onClick={() => {
-                    setAsteroidModalOpen(false);
-                    setNewModalOpen(true);
-                  }}
-                  initial={{ x: -50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 * index }}
-                >
-                  {asteroid}
-                  <hr className="border-white mt-2" />
-                </motion.div>
-              ))}
-            </div>
-          </ScrollArea>
+  <div className="space-y-4">
+    {[
+      { name: "2024 RZ2", diameter: "7 m", date: "2024-09-04" },
+      { name: "2024 RL3", diameter: "6m", date: "2024-10-04" },
+      { name: "2024 RR3", diameter: "1.5 km", date: "2024-11-20" },
+      { name: "2018 QE", diameter: "0.5 km", date: "2024-12-05" },
+      { name: "2024 RN1", diameter: "1.0 km", date: "2024-12-25" },
+      { name: "2024 RN3", diameter: "0.9 km", date: "2025-01-10" },
+      { name: "2024 RF3", diameter: "1.3 km", date: "2025-02-15" },
+      { name: "2024 RQ", diameter: "0.7 km", date: "2025-03-05" },
+      { name: "2024 ON", diameter: "1.1 km", date: "2025-04-20" },
+      { name: "2024 RO2", diameter: "0.6 km", date: "2025-05-15" },
+      { name: "2016 VA", diameter: "1.4 km", date: "2025-06-10" },
+      { name: "2024 RQ5", diameter: "0.8 km", date: "2025-07-25" },
+    ].map((asteroid, index) => (
+      <motion.div
+        key={asteroid.name}
+        className="hover:bg-white bg-opacity-60 hover:text-black cursor-pointer rounded-xl py-4 text-lg text-white"
+        onClick={() => {
+          setAsteroidModalOpen(false);
+          setNewModalOpen(true);
+        }}
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.1 * index }}
+      >
+        <div className="flex justify-between">
+          <div className="w-1/3">{asteroid.name}</div>
+          <div className="w-1/3">{asteroid.diameter}</div>
+          <div className="w-1/3">{asteroid.date}</div>
+        </div>
+        <hr className="border-white mt-2" />
+      </motion.div>
+    ))}
+  </div>
+</ScrollArea>
 
           <motion.button
             onClick={() => setAsteroidModalOpen(false)}

@@ -7,7 +7,7 @@ interface BeltProps {
   outerRadius: number;
   count: number;
   color: string;
-  rotationSpeed: number; // Rotation speed around the Sun
+  rotationSpeed: number; 
 }
 
 const Belt: React.FC<BeltProps> = ({ innerRadius, outerRadius, count, color, rotationSpeed }) => {
@@ -19,7 +19,7 @@ const Belt: React.FC<BeltProps> = ({ innerRadius, outerRadius, count, color, rot
       const radius = THREE.MathUtils.randFloat(innerRadius, outerRadius);
       const angle = THREE.MathUtils.randFloat(0, Math.PI * 2);
       const x = Math.cos(angle) * radius;
-      const y = THREE.MathUtils.randFloat(-0.5, 0.5); // Small variation in Y axis
+      const y = THREE.MathUtils.randFloat(-0.5, 0.5); 
       const z = Math.sin(angle) * radius;
       posArray.push(x, y, z);
     }
@@ -33,7 +33,6 @@ const Belt: React.FC<BeltProps> = ({ innerRadius, outerRadius, count, color, rot
   }, [positions, pointsRef]);
 
   useFrame(() => {
-    // Rotate the group
     if (groupRef.current) {
       groupRef.current.rotation.y += rotationSpeed;
     }
@@ -45,7 +44,7 @@ const Belt: React.FC<BeltProps> = ({ innerRadius, outerRadius, count, color, rot
         <bufferGeometry attach="geometry" attributes={pointsRef.attributes} />
         <pointsMaterial
           attach="material"
-          size={0.1} // Size of each particle
+          size={0.1} 
           color={color}
           sizeAttenuation
         />

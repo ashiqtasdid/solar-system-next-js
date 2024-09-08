@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import CryptoJS from 'crypto-js';
 
-Modal.setAppElement('#__next'); // Set the app element for accessibility
+Modal.setAppElement('#__next'); 
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -43,7 +43,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onRequestClose, onLogin
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
       <div className="relative bg-black bg-opacity-30 p-8 rounded-lg shadow-lg max-w-sm w-full">
-        {/* Close Icon */}
         <button
           onClick={onRequestClose}
           className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"

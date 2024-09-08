@@ -24,7 +24,6 @@ const SolarSystem = () => {
   const planetSpeed: number = 50;
   const router = useRouter();
 
-  // State to control the paused status
   const [paused, setPaused] = useState(false);
 
   // Effect to set paused to true after 5 seconds
@@ -33,7 +32,6 @@ const SolarSystem = () => {
       setPaused(true);
     }, 1000);
 
-    // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
   }, []);
 
@@ -64,7 +62,6 @@ const SolarSystem = () => {
           <ambientLight intensity={0.5} />
           <pointLight position={[0, 0, 0]} intensity={2} />
 
-          {/* Sun */}
           <mesh>
             <sphereGeometry args={[5, 32, 32]} />
             <meshBasicMaterial color="yellow" />
@@ -73,7 +70,6 @@ const SolarSystem = () => {
             Sun
           </Text>
 
-          {/* Planets */}
           <group>
             <Planet
               textureUrl={mercuryTexture}
@@ -113,17 +109,16 @@ const SolarSystem = () => {
               rotationSpeed={0.03}
               paused={paused}
             >
-              {/* Earth with Moon */}
               <group>
                 <Moon
                   color="gray"
                   size={0.25}
-                  distance={3} // Moon's orbit distance from Earth
-                  speed={0.01 * moonSpeed} // Moon's orbit speed
-                  planetRadius={1} // Radius of Earth
+                  distance={3} 
+                  speed={0.01 * moonSpeed} 
+                  planetRadius={1}
                   paused={paused}
                 />
-                <OrbitLine orbitRadius={3} /> {/* Orbit line for Moon */}
+                <OrbitLine orbitRadius={3} /> 
               </group>
             </Planet>
             <Text position={[30, 1, 0]} fontSize={0.5} color="white">
@@ -141,26 +136,25 @@ const SolarSystem = () => {
               rotationSpeed={0.02}
               paused={paused}
             >
-              {/* Mars with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.1}
-                  distance={1.5} // Orbit distance from Mars
-                  speed={0.015 * moonSpeed} // Orbit speed
-                  planetRadius={0.75} // Radius of Mars
+                  distance={1.5} 
+                  speed={0.015 * moonSpeed} 
+                  planetRadius={0.75}
                   paused={paused}
                 />
                 <Moon
                   color="gray"
                   size={0.08}
-                  distance={2.5} // Orbit distance from Mars
-                  speed={0.01} // Orbit speed
-                  planetRadius={0.75} // Radius of Mars
+                  distance={2.5} 
+                  speed={0.01} 
+                  planetRadius={0.75} 
                   paused={paused}
                 />
-                <OrbitLine orbitRadius={1.5} /> {/* Orbit line for Phobos */}
-                <OrbitLine orbitRadius={2.5} /> {/* Orbit line for Deimos */}
+                <OrbitLine orbitRadius={1.5} /> 
+                <OrbitLine orbitRadius={2.5} /> 
               </group>
             </Planet>
             <Text position={[40, 0.75, 0]} fontSize={0.5} color="white">
@@ -169,13 +163,12 @@ const SolarSystem = () => {
             <OrbitLine orbitRadius={40} />
           </group>
 
-          {/* Asteroid Belt */}
           <Belt
             innerRadius={45}
             outerRadius={55}
             count={2500}
             color="gray"
-            rotationSpeed={0.001} // Rotation speed around the Sun
+            rotationSpeed={0.001} 
           />
 
           <group>
@@ -187,26 +180,25 @@ const SolarSystem = () => {
               rotationSpeed={0.02}
               paused={paused}
             >
-              {/* Jupiter with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.3}
-                  distance={5} // Orbit distance from Jupiter
-                  speed={0.007 * moonSpeed} // Orbit speed
-                  planetRadius={2} // Radius of Jupiter
+                  distance={5} 
+                  speed={0.007 * moonSpeed}
+                  planetRadius={2} 
                   paused={paused}
                 />
                 <Moon
                   color="gray"
                   size={0.25}
-                  distance={7} // Orbit distance from Jupiter
-                  speed={0.005 * moonSpeed} // Orbit speed
-                  planetRadius={2} // Radius of Jupiter
+                  distance={7} 
+                  speed={0.005 * moonSpeed}
+                  planetRadius={2}
                   paused={paused}
                 />
-                <OrbitLine orbitRadius={5} /> {/* Orbit line for Io */}
-                <OrbitLine orbitRadius={7} /> {/* Orbit line for Europa */}
+                <OrbitLine orbitRadius={5} />
+                <OrbitLine orbitRadius={7} /> 
               </group>
             </Planet>
             <Text position={[68, 2, 0]} fontSize={0.5} color="white">
@@ -224,26 +216,25 @@ const SolarSystem = () => {
               rotationSpeed={0.01}
               paused={paused}
             >
-              {/* Saturn with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.4}
-                  distance={6} // Orbit distance from Saturn
-                  speed={0.005 * moonSpeed} // Orbit speed
-                  planetRadius={1.7} // Radius of Saturn
+                  distance={6}
+                  speed={0.005 * moonSpeed} 
+                  planetRadius={1.7} 
                   paused={paused}
                 />
                 <Moon
                   color="gray"
                   size={0.2}
-                  distance={8} // Orbit distance from Saturn
-                  speed={0.003 * moonSpeed} // Orbit speed
-                  planetRadius={1.7} // Radius of Saturn
+                  distance={8} 
+                  speed={0.003 * moonSpeed} 
+                  planetRadius={1.7}
                   paused={paused}
                 />
-                <OrbitLine orbitRadius={6} /> {/* Orbit line for Titan */}
-                <OrbitLine orbitRadius={8} /> {/* Orbit line for Rhea */}
+                <OrbitLine orbitRadius={6} />
+                <OrbitLine orbitRadius={8} />
               </group>
             </Planet>
             <Text position={[78, 1.5, 0]} fontSize={0.5} color="white">
@@ -261,26 +252,25 @@ const SolarSystem = () => {
               rotationSpeed={0.002}
               paused={paused}
             >
-              {/* Uranus with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.25}
-                  distance={4} // Orbit distance from Uranus
-                  speed={0.005 * moonSpeed} // Orbit speed
-                  planetRadius={1.4} // Radius of Uranus
+                  distance={4}
+                  speed={0.005 * moonSpeed}
+                  planetRadius={1.4}
                   paused={paused}
                 />
                 <Moon
                   color="gray"
                   size={0.2}
-                  distance={6} // Orbit distance from Uranus
-                  speed={0.003 * moonSpeed} // Orbit speed
-                  planetRadius={1.4} // Radius of Uranus
+                  distance={6}
+                  speed={0.003 * moonSpeed}
+                  planetRadius={1.4} 
                   paused={paused}
                 />
-                <OrbitLine orbitRadius={4} /> {/* Orbit line for Titania */}
-                <OrbitLine orbitRadius={6} /> {/* Orbit line for Oberon */}
+                <OrbitLine orbitRadius={4} />
+                <OrbitLine orbitRadius={6} /> 
               </group>
             </Planet>
             <Text position={[88, 1.2, 0]} fontSize={0.5} color="white">
@@ -298,17 +288,16 @@ const SolarSystem = () => {
               rotationSpeed={0.02}
               paused={paused}
             >
-              {/* Neptune with Moon */}
               <group>
                 <Moon
                   color="gray"
                   size={0.3}
-                  distance={5} // Orbit distance from Neptune
-                  speed={0.007 * moonSpeed} // Orbit speed
-                  planetRadius={1.3} // Radius of Neptune
+                  distance={5}
+                  speed={0.007 * moonSpeed} 
+                  planetRadius={1.3}
                   paused={paused}
                 />
-                <OrbitLine orbitRadius={5} /> {/* Orbit line for Triton */}
+                <OrbitLine orbitRadius={5} /> 
               </group>
             </Planet>
             <Text position={[98, 1, 0]} fontSize={0.5} color="white">
@@ -317,24 +306,22 @@ const SolarSystem = () => {
             <OrbitLine orbitRadius={98} />
           </group>
 
-          {/* Kuiper Belt */}
           <Belt
             innerRadius={110}
             outerRadius={140}
             count={10000}
             color="lightblue"
-            rotationSpeed={0.0005} // Rotation speed around the Sun
+            rotationSpeed={0.0005}
           />
 
-          {/* Close-Passing Asteroid with Tilted Axis */}
-          <group rotation={[0, 0, Math.PI / 16]}> {/* Tilt the axis */}
+          <group rotation={[0, 0, Math.PI / 16]}> 
             <Asteroid
-              orbitRadius={30} // Orbit radius just outside Earth's orbit
-              speed={0.0295 * planetSpeed} // Speed of orbit
-              size={0.07} // Size of the asteroid
+              orbitRadius={30}
+              speed={0.0295 * planetSpeed}
+              size={0.07} 
               paused={paused}
             />
-            <OrbitLine orbitRadius={30} /> {/* Titled Orbit line for Asteroid */}
+            <OrbitLine orbitRadius={30} /> 
             <Text position={[30, 0.5, 0]} fontSize={0.5} color="white">
               2024 RZ2
             </Text>
@@ -342,12 +329,11 @@ const SolarSystem = () => {
 
           <Stars />
 
-          {/* Orbit Controls */}
           <OrbitControls
             enableZoom={true}
             enablePan={true}
             enableRotate={true}
-            zoomSpeed={1.0} // Adjust zoom speed here
+            zoomSpeed={1.0}
           />
         </Suspense>
       </Canvas>

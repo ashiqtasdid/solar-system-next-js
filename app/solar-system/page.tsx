@@ -16,15 +16,15 @@ import jupiterTexture from "@/components/jupitermap.jpg";
 import saturnTexture from "@/components/saturnmap.jpg";
 import uranusTexture from "@/components/uranusmap.jpg";
 import neptuneTexture from "@/components/neptunemap.jpg";
-import { useRouter } from 'next/navigation'; // Import useRouter from next/navigation
+import { useRouter } from 'next/navigation';
 
 const SolarSystem = () => {
   const moonSpeed: number = 250;
   const planetSpeed: number = 50;
-  const router = useRouter(); // Initialize the useRouter hook
+  const router = useRouter();
 
   const handleBackClick = () => {
-    router.back(); // Navigate back to the previous page
+    router.back();
   };
 
   return (
@@ -37,7 +37,6 @@ const SolarSystem = () => {
           <ambientLight intensity={0.5} />
           <pointLight position={[0, 0, 0]} intensity={2} />
 
-          {/* Sun */}
           <mesh>
             <sphereGeometry args={[5, 32, 32]} />
             <meshBasicMaterial color="yellow" />
@@ -46,7 +45,6 @@ const SolarSystem = () => {
             Sun
           </Text>
 
-          {/* Planets */}
           <group>
             <Planet
               textureUrl={mercuryTexture}
@@ -83,16 +81,15 @@ const SolarSystem = () => {
               orbitRadius={30}
               rotationSpeed={0.03}
             >
-              {/* Earth with Moon */}
               <group>
                 <Moon
                   color="gray"
                   size={0.25}
-                  distance={3} // Moon's orbit distance from Earth
-                  speed={0.01 * moonSpeed} // Moon's orbit speed
-                  planetRadius={1} // Radius of Earth
+                  distance={3}
+                  speed={0.01 * moonSpeed}
+                  planetRadius={1}
                 />
-                <OrbitLine orbitRadius={3} /> {/* Orbit line for Moon */}
+                <OrbitLine orbitRadius={3} />
               </group>
             </Planet>
             <Text position={[30, 1, 0]} fontSize={0.5} color="white">
@@ -109,24 +106,23 @@ const SolarSystem = () => {
               orbitRadius={40}
               rotationSpeed={0.02}
             >
-              {/* Mars with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.1}
-                  distance={1.5} // Orbit distance from Mars
-                  speed={0.015 * moonSpeed} // Orbit speed
-                  planetRadius={0.75} // Radius of Mars
+                  distance={1.5}
+                  speed={0.015 * moonSpeed}
+                  planetRadius={0.75}
                 />
                 <Moon
                   color="gray"
                   size={0.08}
-                  distance={2.5} // Orbit distance from Mars
-                  speed={0.01} // Orbit speed
-                  planetRadius={0.75} // Radius of Mars
+                  distance={2.5}
+                  speed={0.01}
+                  planetRadius={0.75}
                 />
-                <OrbitLine orbitRadius={1.5} /> {/* Orbit line for Phobos */}
-                <OrbitLine orbitRadius={2.5} /> {/* Orbit line for Deimos */}
+                <OrbitLine orbitRadius={1.5} />
+                <OrbitLine orbitRadius={2.5} />
               </group>
             </Planet>
             <Text position={[40, 0.75, 0]} fontSize={0.5} color="white">
@@ -135,13 +131,12 @@ const SolarSystem = () => {
             <OrbitLine orbitRadius={40} />
           </group>
 
-          {/* Asteroid Belt */}
           <Belt
             innerRadius={45}
             outerRadius={55}
             count={2500}
             color="gray"
-            rotationSpeed={0.001} // Rotation speed around the Sun
+            rotationSpeed={0.001}
           />
 
           <group>
@@ -149,33 +144,32 @@ const SolarSystem = () => {
               textureUrl={jupiterTexture}
               size={2.0}
               speed={0.003 * planetSpeed}
-              orbitRadius={60 + 8}
+              orbitRadius={68}
               rotationSpeed={0.02}
             >
-              {/* Jupiter with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.3}
-                  distance={5} // Orbit distance from Jupiter
-                  speed={0.007 * moonSpeed} // Orbit speed
-                  planetRadius={2} // Radius of Jupiter
+                  distance={5}
+                  speed={0.007 * moonSpeed}
+                  planetRadius={2}
                 />
                 <Moon
                   color="gray"
                   size={0.25}
-                  distance={7} // Orbit distance from Jupiter
-                  speed={0.005 * moonSpeed} // Orbit speed
-                  planetRadius={2} // Radius of Jupiter
+                  distance={7}
+                  speed={0.005 * moonSpeed}
+                  planetRadius={2}
                 />
-                <OrbitLine orbitRadius={5} /> {/* Orbit line for Io */}
-                <OrbitLine orbitRadius={7} /> {/* Orbit line for Europa */}
+                <OrbitLine orbitRadius={5} />
+                <OrbitLine orbitRadius={7} />
               </group>
             </Planet>
-            <Text position={[60 + 8, 2, 0]} fontSize={0.5} color="white">
+            <Text position={[68, 2, 0]} fontSize={0.5} color="white">
               Jupiter
             </Text>
-            <OrbitLine orbitRadius={60 + 8} />
+            <OrbitLine orbitRadius={68} />
           </group>
 
           <group>
@@ -183,33 +177,32 @@ const SolarSystem = () => {
               textureUrl={saturnTexture}
               size={1.7}
               speed={0.002 * planetSpeed}
-              orbitRadius={70 + 8}
+              orbitRadius={78}
               rotationSpeed={0.01}
             >
-              {/* Saturn with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.4}
-                  distance={6} // Orbit distance from Saturn
-                  speed={0.005 * moonSpeed} // Orbit speed
-                  planetRadius={1.7} // Radius of Saturn
+                  distance={6}
+                  speed={0.005 * moonSpeed}
+                  planetRadius={1.7}
                 />
                 <Moon
                   color="gray"
                   size={0.2}
-                  distance={8} // Orbit distance from Saturn
-                  speed={0.003 * moonSpeed} // Orbit speed
-                  planetRadius={1.7} // Radius of Saturn
+                  distance={8}
+                  speed={0.003 * moonSpeed}
+                  planetRadius={1.7}
                 />
-                <OrbitLine orbitRadius={6} /> {/* Orbit line for Titan */}
-                <OrbitLine orbitRadius={8} /> {/* Orbit line for Rhea */}
+                <OrbitLine orbitRadius={6} />
+                <OrbitLine orbitRadius={8} />
               </group>
             </Planet>
-            <Text position={[70 + 8, 1.5, 0]} fontSize={0.5} color="white">
+            <Text position={[78, 1.5, 0]} fontSize={0.5} color="white">
               Saturn
             </Text>
-            <OrbitLine orbitRadius={70 + 8} />
+            <OrbitLine orbitRadius={78} />
           </group>
 
           <group>
@@ -217,33 +210,32 @@ const SolarSystem = () => {
               textureUrl={uranusTexture}
               size={1.4}
               speed={0.0015 * planetSpeed}
-              orbitRadius={80 + 8}
+              orbitRadius={88}
               rotationSpeed={0.002}
             >
-              {/* Uranus with Moons */}
               <group>
                 <Moon
                   color="gray"
                   size={0.25}
-                  distance={4} // Orbit distance from Uranus
-                  speed={0.005 * moonSpeed} // Orbit speed
-                  planetRadius={1.4} // Radius of Uranus
+                  distance={4}
+                  speed={0.005 * moonSpeed}
+                  planetRadius={1.4}
                 />
                 <Moon
                   color="gray"
                   size={0.2}
-                  distance={6} // Orbit distance from Uranus
-                  speed={0.003 * moonSpeed} // Orbit speed
-                  planetRadius={1.4} // Radius of Uranus
+                  distance={6}
+                  speed={0.003 * moonSpeed}
+                  planetRadius={1.4}
                 />
-                <OrbitLine orbitRadius={4} /> {/* Orbit line for Titania */}
-                <OrbitLine orbitRadius={6} /> {/* Orbit line for Oberon */}
+                <OrbitLine orbitRadius={4} />
+                <OrbitLine orbitRadius={6} />
               </group>
             </Planet>
-            <Text position={[80 + 8, 1.2, 0]} fontSize={0.5} color="white">
+            <Text position={[88, 1.2, 0]} fontSize={0.5} color="white">
               Uranus
             </Text>
-            <OrbitLine orbitRadius={80 + 8} />
+            <OrbitLine orbitRadius={88} />
           </group>
 
           <group>
@@ -251,47 +243,42 @@ const SolarSystem = () => {
               textureUrl={neptuneTexture}
               size={1.3}
               speed={0.001 * planetSpeed}
-              orbitRadius={90 + 8}
+              orbitRadius={98}
               rotationSpeed={0.02}
             >
-              {/* Neptune with Moon */}
               <group>
                 <Moon
                   color="gray"
                   size={0.3}
-                  distance={5} // Orbit distance from Neptune
-                  speed={0.007 * moonSpeed} // Orbit speed
-                  planetRadius={1.3} // Radius of Neptune
+                  distance={5}
+                  speed={0.007 * moonSpeed}
+                  planetRadius={1.3}
                 />
-                <OrbitLine orbitRadius={5} /> {/* Orbit line for Triton */}
+                <OrbitLine orbitRadius={5} />
               </group>
             </Planet>
-            <Text position={[90 + 8, 1.3, 0]} fontSize={0.5} color="white">
+            <Text position={[98, 1.3, 0]} fontSize={0.5} color="white">
               Neptune
             </Text>
-            <OrbitLine orbitRadius={90 + 8} />
+            <OrbitLine orbitRadius={98} />
           </group>
-
-          {/* Kuiper Belt */}
           <Belt
             innerRadius={110}
             outerRadius={140}
             count={10000}
             color="lightblue"
-            rotationSpeed={0.0005} // Rotation speed around the Sun
+            rotationSpeed={0.0005}
           />
 
           <Stars />
 
-          {/* Orbit Controls with zoom and pan enabled */}
           <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
         </Suspense>
       </Canvas>
 
-      {/* Back Button */}
       <button
         onClick={handleBackClick}
-        className="absolute top-4 left-4 px-4 py-2 bg-black bg-opacity-30 text-white rounded-lg shadow-md"
+        className="absolute top-4 left-4 px-8 font-semibold text-2xl py-2 bg-white text-black rounded-lg shadow-md"
       >
         Back
       </button>

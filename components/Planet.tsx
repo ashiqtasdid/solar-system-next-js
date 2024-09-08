@@ -12,7 +12,7 @@ interface PlanetProps {
   orbitRadius: number;
   rotationSpeed: number;
   children?: ReactNode;
-  paused?: boolean; // New prop to control pausing
+  paused?: boolean;
 }
 
 const Planet: React.FC<PlanetProps> = ({
@@ -23,7 +23,7 @@ const Planet: React.FC<PlanetProps> = ({
   orbitRadius,
   rotationSpeed,
   children,
-  paused = false, // Default to not paused
+  paused = false, 
 }) => {
   const planetRef = useRef<THREE.Mesh>(null!);
   const orbitRef = useRef<THREE.Group>(null!);
@@ -31,16 +31,14 @@ const Planet: React.FC<PlanetProps> = ({
   const texture = useLoader(TextureLoader, typeof textureUrl === 'string' ? textureUrl : (textureUrl as StaticImageData)?.src);
 
   useFrame(({ clock }) => {
-    if (paused) return; // Skip frame updates if paused
+    if (paused) return; 
 
     const elapsed = clock.getElapsedTime();
 
-    // Rotate the planet on its own axis
     if (planetRef.current) {
       planetRef.current.rotation.y += rotationSpeed;
     }
 
-    // Make the planet orbit around the sun
     if (orbitRef.current) {
       orbitRef.current.position.x = Math.sin(elapsed * speed) * orbitRadius;
       orbitRef.current.position.z = Math.cos(elapsed * speed) * orbitRadius;
