@@ -203,6 +203,11 @@ const Nav: React.FC = () => {
           {/* Scrollable asteroid list with animations for each item */}
           <ScrollArea className="h-[65vh] w-full">
   <div className="space-y-4">
+    <div className="flex justify-between bg-gray-800 text-white py-2 px-4 rounded-t-xl">
+      <div className="w-1/3 font-bold">Name</div>
+      <div className="w-1/3 font-bold">Diameter</div>
+      <div className="w-1/3 font-bold">Date of Impact/Pass</div>
+    </div>
     {[
       { name: "2024 RZ2", diameter: "7 m", date: "2024-09-04" },
       { name: "2024 RL3", diameter: "6m", date: "2024-10-04" },
@@ -228,7 +233,7 @@ const Nav: React.FC = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.1 * index }}
       >
-        <div className="flex justify-between">
+        <div className="flex justify-between px-4">
           <div className="w-1/3">{asteroid.name}</div>
           <div className="w-1/3">{asteroid.diameter}</div>
           <div className="w-1/3">{asteroid.date}</div>
