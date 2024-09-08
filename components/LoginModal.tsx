@@ -42,7 +42,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onRequestClose, onLogin
       className="fixed inset-0 flex items-center justify-center z-50"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
-      <div className="relative bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-sm w-full">
+      <div className="relative bg-black bg-opacity-30 p-8 rounded-lg shadow-lg max-w-sm w-full">
         {/* Close Icon */}
         <button
           onClick={onRequestClose}
@@ -77,7 +77,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onRequestClose, onLogin
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2 border bg-black border-gray-300 rounded-md"
             />
           </div>
           <div className="mb-4">
@@ -86,7 +86,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onRequestClose, onLogin
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full p-2 border bg-black border-gray-300 rounded-md"
             />
           </div>
           <button

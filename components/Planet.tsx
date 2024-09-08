@@ -12,6 +12,7 @@ interface PlanetProps {
   orbitRadius: number;
   rotationSpeed: number;
   children?: ReactNode;
+  paused?: boolean; // New prop to control pausing
 }
 
 const Planet: React.FC<PlanetProps> = ({
@@ -22,14 +23,16 @@ const Planet: React.FC<PlanetProps> = ({
   orbitRadius,
   rotationSpeed,
   children,
+  paused = false, // Default to not paused
 }) => {
   const planetRef = useRef<THREE.Mesh>(null!);
   const orbitRef = useRef<THREE.Group>(null!);
 
-  // Always call useLoader, but conditionally set texture or color
   const texture = useLoader(TextureLoader, typeof textureUrl === 'string' ? textureUrl : (textureUrl as StaticImageData)?.src);
 
   useFrame(({ clock }) => {
+    if (paused) return; // Skip frame updates if paused
+
     const elapsed = clock.getElapsedTime();
 
     // Rotate the planet on its own axis

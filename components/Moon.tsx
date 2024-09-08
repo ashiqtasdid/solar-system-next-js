@@ -10,6 +10,7 @@ interface MoonProps {
   distance: number; // Distance from the planet (orbit radius)
   speed: number; // Orbital speed around the planet
   planetRadius: number; // Distance from the planet (used if needed, but mainly for relation to Earth)
+  paused?: boolean; // New prop to control pausing
 }
 
 const Moon: React.FC<MoonProps> = ({
@@ -17,11 +18,14 @@ const Moon: React.FC<MoonProps> = ({
   size,
   distance,
   speed,
+  paused = false, // Default to not paused
 }) => {
   const moonRef = useRef<THREE.Mesh>(null!);
   const orbitRef = useRef<THREE.Group>(null!);
 
   useFrame(({ clock }) => {
+    if (paused) return; // Skip frame updates if paused
+
     const elapsed = clock.getElapsedTime();
 
     // Moon orbits around the Earth
