@@ -170,7 +170,7 @@ const Nav: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
             >
-              <div className="absolute text-white">NEO Explorer</div>
+              <div className="absolute text-white">Satellite Explorer</div>
             </motion.div>
           </Link>
         </motion.div>
