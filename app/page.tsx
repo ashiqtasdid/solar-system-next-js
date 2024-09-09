@@ -87,7 +87,7 @@ const Home: React.FC = () => {
                     The Solar System is a collection of celestial bodies,
                     including the Sun, eight planets, their moons, and various
                     smaller objects such as asteroids, comets, and dwarf
-                    planets, all bound together by the Sun's gravitational
+                    planets, all bound together by the Sun&apos;s gravitational
                     pull. The planets are divided into two categories: the inner
                     terrestrial planets (Mercury, Venus, Earth, and Mars) and
                     the outer gas giants (Jupiter, Saturn, Uranus, and Neptune).
