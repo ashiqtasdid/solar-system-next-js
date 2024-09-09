@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import CryptoJS from 'crypto-js';
 
-Modal.setAppElement('#__next'); 
 
 interface LoginModalProps {
   isOpen: boolean;

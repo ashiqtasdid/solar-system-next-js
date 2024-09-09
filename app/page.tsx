@@ -11,12 +11,12 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Home: React.FC = () => {
   return (
-    <div className="m-0 p-0 overflow-hidden w-screen h-screen" id='__next'>
-      <Nav />
+    <div className="m-0 p-0 overflow-hidden w-[100%] h-[100%]" id='__next'>
+      
 
       <main className="">
         <div className="">
-          <SolarSystem />
+        <SolarSystem />
 
 
 
