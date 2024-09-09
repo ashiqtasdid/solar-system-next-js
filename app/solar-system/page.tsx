@@ -30,7 +30,7 @@ const SolarSystem = () => {
   return (
     <>
       <Canvas
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "100vw", height: "100vh", position:'absolute',top:0 }}
         camera={{ position: [0, 60, 150], fov: 75 }}
       >
         <Suspense fallback={null}>
@@ -276,12 +276,24 @@ const SolarSystem = () => {
         </Suspense>
       </Canvas>
 
-      <button
+    <div className="absolute flex justify-center w-[100%]  bottom-10 text-3xl">
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Sun</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Mercury</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Venus</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Earth</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Mars</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Jupiter</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Saturn</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Uranus</div>
+      <div className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center">Neptune</div>
+      
+    </div>
+      {/* <button
         onClick={handleBackClick}
-        className="absolute top-4 left-4 px-8 font-semibold text-2xl py-2 bg-white text-black rounded-lg shadow-md"
+        className="absolute top-18 left- px-8 font-semibold text-2xl py-2 bg-white text-black rounded-lg shadow-md"
       >
         Back
-      </button>
+      </button> */}
     </>
   );
 };
