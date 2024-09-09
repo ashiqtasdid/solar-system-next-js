@@ -372,7 +372,7 @@ const SolarSystem = () => {
         </div>
         <div
           className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([110, 5, 10])}
+          onClick={() => handleClick([110, 5, 0])}
         >
           Neptune
         </div>

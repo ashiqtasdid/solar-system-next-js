@@ -10,7 +10,6 @@ import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
-
 const Nav: React.FC = () => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
@@ -79,16 +78,6 @@ const Nav: React.FC = () => {
         <div>
           <Image src={"/assets/logo.png"} width={150} height={30} alt="logo" />
         </div>
-        {/* {user ? (
-          <div
-            className="font-bold text-white cursor-pointer"
-            onClick={() => setMenuModalOpen(true)}
-          >
-            MENU
-          </div>
-        ) : (
-          <></>
-      )} */}
         <div className="flex space-x-5">
           {user ? (
             <div className="flex items-center space-x-3 text-white">
@@ -122,11 +111,11 @@ const Nav: React.FC = () => {
       <Modal
         isOpen={isMenuModalOpen}
         onRequestClose={() => setMenuModalOpen(false)}
-        className="flex justify-center pr-[510px] pt-[650px] items-center min-h-screen bg-black bg-opacity-10"
+        className="flex justify-center items-center min-h-screen bg-black bg-opacity-10"
         overlayClassName="fixed inset-0 bg-black bg-opacity-50 z-50"
       >
         <motion.div
-          className="bg-transparent p-10 rounded-lg w-full max-w-4xl grid grid-cols-3 gap-[500px] mb-10"
+          className="bg-transparent p-10 rounded-lg w-full max-w-4xl grid grid-cols-3 gap-10 mb-10"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
@@ -135,14 +124,19 @@ const Nav: React.FC = () => {
           {/* Hazardous Asteroids Card */}
           <motion.div
             className="relative h-56 w-72 bg-black bg-opacity-60 flex justify-center items-center ring-1 rounded-xl ring-slate-700 cursor-pointer"
-            onClick={() => setAsteroidModalOpen(true)}
+            onClick={() => {
+              console.log("Opening Asteroid Modal"); // Debugging line
+              setAsteroidModalOpen(true); // Open the Asteroid Modal
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
           >
-            <div className="absolute text-white">Hazardous Asteroids</div>
+            <div className="absolute text-white">
+              Hazardous Asteroids
+            </div>
           </motion.div>
 
           {/* 3D Live Solar System Card */}
@@ -179,11 +173,11 @@ const Nav: React.FC = () => {
       <Modal
         isOpen={isAsteroidModalOpen}
         onRequestClose={() => setAsteroidModalOpen(false)}
-        className="flex justify-center items-center min-h-screen"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50 z-50"
+        className="flex justify-center items-center min-h-screen bg-black bg-opacity-60"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-70 z-50"
       >
         <motion.div
-          className="bg-black bg-opacity-30 h-[85vh] w-[85vw] space-y-4 p-10 rounded-lg shadow-lg text-center overflow-hidden"
+          className="bg-black bg-opacity-80 h-[85vh] w-[85vw] space-y-4 p-10 rounded-lg shadow-lg text-center overflow-hidden"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
@@ -258,8 +252,8 @@ const Nav: React.FC = () => {
       <Modal
         isOpen={isNewModalOpen}
         onRequestClose={() => setNewModalOpen(false)}
-        className="flex justify-center items-center min-h-screen"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-40 z-50 transition-opacity duration-300"
+        className="flex justify-center items-center min-h-screen bg-black bg-opacity-40"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-70 z-50 transition-opacity duration-300"
       >
         <motion.div
           className="bg-black bg-opacity-80 h-[85vh] w-[85vw] p-10 rounded-lg shadow-2xl overflow-hidden relative"
@@ -295,7 +289,6 @@ const Nav: React.FC = () => {
             </p>
             <Link href="/hneo">
               <div className="py-3">
-
                 <motion.button
                   className="px-5 py-2 bg-gray-900 text-white rounded-full shadow-md hover:bg-gray-700 transition"
                   whileHover={{ scale: 1.1 }}
