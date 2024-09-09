@@ -23,7 +23,7 @@ const SolarSystem = () => {
 
   return (
     <Canvas
-      style={{ width: "100vw", height: "100vh" }}
+      style={{ width: "100vw", height: "100vh", top:0,position:'absolute' ,zIndex:-1}}
       camera={{ position: [0, 60, 150], fov: 75 }}
     >
       <Suspense fallback={null}>

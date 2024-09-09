@@ -10,7 +10,6 @@ import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
-Modal.setAppElement("#__next");
 
 const Nav: React.FC = () => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
@@ -75,12 +74,12 @@ const Nav: React.FC = () => {
   };
 
   return (
-    <div className="bg-cover bg-center bg-no-repeat">
-      <div className="flex mx-10 py-5 justify-between">
+    <div className="bg-cover bg-center bg-no-repeat z-50">
+      <div className="flex mx-10 py-5 justify-between items-center text-xl">
         <div>
           <Image src={"/assets/logo.png"} width={150} height={30} alt="logo" />
         </div>
-        {user ? (
+        {/* {user ? (
           <div
             className="font-bold text-white cursor-pointer"
             onClick={() => setMenuModalOpen(true)}
@@ -89,14 +88,14 @@ const Nav: React.FC = () => {
           </div>
         ) : (
           <></>
-        )}
+      )} */}
         <div className="flex space-x-5">
           {user ? (
             <div className="flex items-center space-x-3 text-white">
               <span>Logged in as {user}</span>
               <button
                 onClick={handleLogout}
-                className="p-2 bg-red-500 text-white rounded-md hover:bg-red-600 hover:shadow-lg hover:shadow-red-500/50 transition duration-300 ease-in-out"
+                className=" px-2 bg-red-500 text-white rounded-md hover:bg-red-600 hover:shadow-lg hover:shadow-red-500/50 transition duration-300 ease-in-out"
               >
                 Logout
               </button>
@@ -202,47 +201,47 @@ const Nav: React.FC = () => {
 
           {/* Scrollable asteroid list with animations for each item */}
           <ScrollArea className="h-[65vh] w-full">
-  <div className="space-y-4">
-    <div className="flex justify-between bg-gray-800 text-white py-2 px-4 rounded-t-xl">
-      <div className="w-1/3 font-bold">Name</div>
-      <div className="w-1/3 font-bold">Diameter</div>
-      <div className="w-1/3 font-bold">Date of Impact/Pass</div>
-    </div>
-    {[
-      { name: "2024 RZ2", diameter: "7 m", date: "2024-09-04" },
-      { name: "2024 RL3", diameter: "6m", date: "2024-10-04" },
-      { name: "2024 RR3", diameter: "1.5 km", date: "2024-11-20" },
-      { name: "2018 QE", diameter: "0.5 km", date: "2024-12-05" },
-      { name: "2024 RN1", diameter: "1.0 km", date: "2024-12-25" },
-      { name: "2024 RN3", diameter: "0.9 km", date: "2025-01-10" },
-      { name: "2024 RF3", diameter: "1.3 km", date: "2025-02-15" },
-      { name: "2024 RQ", diameter: "0.7 km", date: "2025-03-05" },
-      { name: "2024 ON", diameter: "1.1 km", date: "2025-04-20" },
-      { name: "2024 RO2", diameter: "0.6 km", date: "2025-05-15" },
-      { name: "2016 VA", diameter: "1.4 km", date: "2025-06-10" },
-      { name: "2024 RQ5", diameter: "0.8 km", date: "2025-07-25" },
-    ].map((asteroid, index) => (
-      <motion.div
-        key={asteroid.name}
-        className="hover:bg-white bg-opacity-60 hover:text-black cursor-pointer rounded-xl py-4 text-lg text-white"
-        onClick={() => {
-          setAsteroidModalOpen(false);
-          setNewModalOpen(true);
-        }}
-        initial={{ x: -50, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.1 * index }}
-      >
-        <div className="flex justify-between px-4">
-          <div className="w-1/3">{asteroid.name}</div>
-          <div className="w-1/3">{asteroid.diameter}</div>
-          <div className="w-1/3">{asteroid.date}</div>
-        </div>
-        <hr className="border-white mt-2" />
-      </motion.div>
-    ))}
-  </div>
-</ScrollArea>
+            <div className="space-y-4">
+              <div className="flex justify-between bg-gray-800 text-white py-2 px-4 rounded-t-xl">
+                <div className="w-1/3 font-bold">Name</div>
+                <div className="w-1/3 font-bold">Diameter</div>
+                <div className="w-1/3 font-bold">Date of Impact/Pass</div>
+              </div>
+              {[
+                { name: "2024 RZ2", diameter: "7 m", date: "2024-09-04" },
+                { name: "2024 RL3", diameter: "6m", date: "2024-10-04" },
+                { name: "2024 RR3", diameter: "1.5 km", date: "2024-11-20" },
+                { name: "2018 QE", diameter: "0.5 km", date: "2024-12-05" },
+                { name: "2024 RN1", diameter: "1.0 km", date: "2024-12-25" },
+                { name: "2024 RN3", diameter: "0.9 km", date: "2025-01-10" },
+                { name: "2024 RF3", diameter: "1.3 km", date: "2025-02-15" },
+                { name: "2024 RQ", diameter: "0.7 km", date: "2025-03-05" },
+                { name: "2024 ON", diameter: "1.1 km", date: "2025-04-20" },
+                { name: "2024 RO2", diameter: "0.6 km", date: "2025-05-15" },
+                { name: "2016 VA", diameter: "1.4 km", date: "2025-06-10" },
+                { name: "2024 RQ5", diameter: "0.8 km", date: "2025-07-25" },
+              ].map((asteroid, index) => (
+                <motion.div
+                  key={asteroid.name}
+                  className="hover:bg-white bg-opacity-60 hover:text-black cursor-pointer rounded-xl py-4 text-lg text-white"
+                  onClick={() => {
+                    setAsteroidModalOpen(false);
+                    setNewModalOpen(true);
+                  }}
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.1 * index }}
+                >
+                  <div className="flex justify-between px-4">
+                    <div className="w-1/3">{asteroid.name}</div>
+                    <div className="w-1/3">{asteroid.diameter}</div>
+                    <div className="w-1/3">{asteroid.date}</div>
+                  </div>
+                  <hr className="border-white mt-2" />
+                </motion.div>
+              ))}
+            </div>
+          </ScrollArea>
 
           <motion.button
             onClick={() => setAsteroidModalOpen(false)}
@@ -295,17 +294,17 @@ const Nav: React.FC = () => {
               <strong>21.02</strong> (data provided by JPL Horizons).
             </p>
             <Link href="/hneo">
-            <div className="py-3">
+              <div className="py-3">
 
-            <motion.button
-              className="px-5 py-2 bg-gray-900 text-white rounded-full shadow-md hover:bg-gray-700 transition"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              >
-              Live Movement
-            </motion.button>
-                </div>
-              </Link>
+                <motion.button
+                  className="px-5 py-2 bg-gray-900 text-white rounded-full shadow-md hover:bg-gray-700 transition"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Live Movement
+                </motion.button>
+              </div>
+            </Link>
           </motion.div>
 
           <motion.div className="flex justify-end mt-6">
