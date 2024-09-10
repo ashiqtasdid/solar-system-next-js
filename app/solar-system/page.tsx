@@ -20,6 +20,9 @@ import { useRouter } from "next/navigation";
 import * as THREE from "three";
 
 const CameraControls = ({ position }: { position: [number, number, number] }) => {
+
+  
+
   const { camera, invalidate } = useThree();
   useFrame(() => {
     camera.position.lerp(new THREE.Vector3(...position), 0.1);
@@ -30,6 +33,8 @@ const CameraControls = ({ position }: { position: [number, number, number] }) =>
 };
 
 const SolarSystem = () => {
+
+  const [planet , setPlanet]=useState("");
   const planetSpeed: number = 50;
   const router = useRouter();
   const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([0, 60, 150]);
@@ -323,63 +328,82 @@ const SolarSystem = () => {
 
       <div className="absolute flex justify-center w-[100%] bottom-10 text-3xl">
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([10, 10, 10])}
+          className={planet==="Sun"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([10, 10, 10]);
+            setPlanet("Sun")
+          }}
         >
           Sun
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([10, 2, 10])}
+          className={planet==="Mercury"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([10, 2, 10]);
+            setPlanet("Mercury")
+          }}
         >
           Mercury
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([28, 5, 10])}
+          className={planet==="Venus"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([28, 5, 10]);
+            setPlanet("Venus")
+          }}
         >
           Venus
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([38, 5, 10])}
+          className={planet==="Earth"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([38, 5, 10]);
+            setPlanet("Earth")
+          }}
         >
           Earth
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([48, 5, 10])}
+          className={planet==="Mars"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([48, 5, 10]);
+            setPlanet("Mars")
+          }}
         >
           Mars
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([80, 5, 10])}
+          className={planet==="Jupiter"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([80, 5, 10]);
+          setPlanet("Jupiter")
+
+          }}
         >
           Jupiter
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([90, 5, 10])}
+          className={planet==="Saturn"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([90, 5, 10]);
+            setPlanet("Saturn")
+          }}
         >
           Saturn
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([100, 5, 10])}
+          className={planet==="Uranus"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([100, 5, 10]);
+            setPlanet("Uranus")
+          }}
         >
           Uranus
         </div>
         <div
-          className="border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"
-          onClick={() => handleClick([110, 5, 0])}
+          className={planet==="Neptune"?"border-blue-400 text-blue-400 border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center":"border border-x-0 border-t-0 hover:border-blue-400 hover:text-blue-400 cursor-pointer px-6 text-center"}
+          onClick={() => {handleClick([110, 5, 0]);
+            setPlanet("Neptune")
+          }}
         >
           Neptune
         </div>
       </div>
       <button
         onClick={handleBackClick}
-        className="absolute top-18 left- px-8 font-semibold text-2xl py-2 bg-white text-black rounded-lg shadow-md"
+        className="absolute top-18 left- px-8 font-semibold text-2xl py-2 ml-10 bg-white text-black rounded-lg shadow-md"
       >
         Back
       </button>

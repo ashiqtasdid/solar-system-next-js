@@ -7,6 +7,47 @@ import Link from "next/link";
 import SolarSystem from "../components/SolarSystem";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+
+
+const Banner: React.FC = () => {
+  return (
+    <div className="relative h-48 w-full max-w-5xl rounded-xl my-10 mx-auto px-4">
+      <div
+        className="absolute inset-0 bg-cover bg-center rounded-xl"
+        style={{ backgroundImage: "url('/assets/Space_Race_Classroom_Banner.png')" }}
+      >
+        <div className="absolute inset-0 bg-blue-950 blur-2xl bg-opacity-60 rounded-xl"></div>
+      </div>
+      <div className="relative flex flex-col md:flex-row items-center pt-4 md:pb-0 justify-between px-4 md:px-6 h-full">
+        <div className="flex-1 text-center pb-6 md:text-left">
+          <h1 className="text-4xl   text-white mb-2 ">
+          Embark on an epic adventure with our latest game,
+          </h1>
+          <h2 className="text-xl md:text-2xl -my-1 md:-my-3 font-bold text-white mb-4">
+            <span className="text-white pr-1 md:pr-2">Astro Explorer</span>
+          </h2>
+        </div>
+        <div className="flex-none  md:pb-4 pb-4 md:mt-0">
+          <Link href="#">
+            <Button />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Button: React.FC = () => {
+  return (
+    <button className="relative bg-white bg-opacity-20 border border-white rounded-3xl text-white py-2 px-6 shadow-lg ring-1 ring-white ring-opacity-50 hover:ring-opacity-100 transition duration-300">
+      <span className="relative z-10">Get Started</span>
+    </button>
+  );
+};
+
+
+
+
 const Home: React.FC = () => {
   const [isAsteroidModalOpen, setAsteroidModalOpen] = useState(false);
   const [isNewModalOpen, setNewModalOpen] = useState(false);
@@ -46,9 +87,9 @@ const Home: React.FC = () => {
             >
               <p className="text-center">Your Gateway to Solar System Knowledge</p>
             </motion.div>
-            <div className="flex justify-between gap-10 h-[100%] w-[100%] items-center mt-32 px-20">
+            <div className="flex justify-between gap-10 h-[100%] w-[100%] items-center mt-20 px-20">
               <motion.div
-                className="flex flex-col justify-between h-[20rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
+                className="flex flex-col justify-between h-[19rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 }}
@@ -76,7 +117,7 @@ const Home: React.FC = () => {
 
               {/* 3D Live Solar System Card */}
               <motion.div
-                className="flex flex-col justify-between h-[20rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
+                className="flex flex-col justify-between h-[19rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
@@ -104,7 +145,7 @@ const Home: React.FC = () => {
 
               {/* Satellite Explorer Card */}
               <motion.div
-                className="flex flex-col justify-between h-[20rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
+                className="flex flex-col justify-between h-[19rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
@@ -128,8 +169,10 @@ const Home: React.FC = () => {
                     </button>
                   </Link>
                 </div>
+
+          
               </motion.div>
-            </div>
+            </div><Banner/>
           </motion.div>
 
           {/* Asteroid Modal */}

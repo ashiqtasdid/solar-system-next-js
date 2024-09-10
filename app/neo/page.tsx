@@ -108,7 +108,7 @@ const EarthAndSatellites = () => {
   };
   return (
     <>
-    <Canvas camera={{ position: [0, 2, 5], fov: 60 }} style={{ width: '100vw', height: '100vh' }}>
+    <Canvas camera={{ position: [0, 2, 5], fov: 60 }} style={{ width: '100vw', height: '100vh',position:"absolute" ,top:0}}>
       {/* Lighting */}
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1.5} castShadow />
@@ -124,7 +124,7 @@ const EarthAndSatellites = () => {
     </Canvas>
     <button
         onClick={handleBackClick}
-        className="absolute top-4 left-4 px-8 font-semibold text-2xl py-2 bg-white text-black rounded-lg shadow-md"
+        className="absolute top-18 left- px-8 font-semibold text-2xl py-2 ml-10 bg-white text-black rounded-lg shadow-md"
       >
         Back
       </button>
