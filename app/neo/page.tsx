@@ -26,6 +26,7 @@ const generateSatellites = (count: number) => {
   });
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SatelliteParticles = ({ satelliteData }: { satelliteData: any[] }) => {
   const ref = useRef<THREE.Points>(null!);
 
