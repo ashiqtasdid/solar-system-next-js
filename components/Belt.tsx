@@ -1,6 +1,9 @@
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three";
+import { StaticImageData } from "next/image";
+import astroidsTexture from "@/public/assets/asteroids.png"
 
 interface BeltProps {
   innerRadius: number;
@@ -37,6 +40,12 @@ const Belt: React.FC<BeltProps> = ({ innerRadius, outerRadius, count, color, rot
       groupRef.current.rotation.y += rotationSpeed;
     }
   });
+  const texture = useLoader(
+    TextureLoader,
+    typeof astroidsTexture === "string"
+      ? astroidsTexture
+      : (astroidsTexture as StaticImageData)?.src
+  );
 
   return (
     <group ref={groupRef}>
@@ -44,7 +53,8 @@ const Belt: React.FC<BeltProps> = ({ innerRadius, outerRadius, count, color, rot
         <bufferGeometry attach="geometry" attributes={pointsRef.attributes} />
         <pointsMaterial
           attach="material"
-          size={0.1} 
+          size={0.2}
+          map={texture || undefined}
           color={color}
           sizeAttenuation
         />

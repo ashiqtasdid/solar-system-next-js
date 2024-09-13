@@ -22,9 +22,9 @@ const OrbitLine: React.FC<OrbitLineProps> = ({ orbitRadius }) => {
   return (
     <Line
       points={points}
-      color="white"
-      lineWidth={1}
-      opacity={0.5}
+      color="gray"
+      lineWidth={0.5}
+      opacity={0.4}
       transparent
     />
   );

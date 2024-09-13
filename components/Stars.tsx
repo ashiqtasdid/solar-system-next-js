@@ -30,7 +30,7 @@ const Stars: React.FC = () => {
     size: STAR_SIZE,
     sizeAttenuation: true,
     transparent: true,
-    opacity: 0.8
+    opacity: 0.7
   }), []);
 
   useFrame(() => {

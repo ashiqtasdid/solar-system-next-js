@@ -125,7 +125,7 @@ const Nav: React.FC = () => {
           <motion.div
             className="relative h-56 w-72 bg-black bg-opacity-60 flex justify-center items-center ring-1 rounded-xl ring-slate-700 cursor-pointer"
             onClick={() => {
-              console.log("Opening Asteroid Modal"); // Debugging line
+              // console.log("Opening Asteroid Modal"); // Debugging line
               setAsteroidModalOpen(true); // Open the Asteroid Modal
             }}
             whileHover={{ scale: 1.05 }}

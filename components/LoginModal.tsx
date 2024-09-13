@@ -41,10 +41,10 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onRequestClose, onLogin
       className="fixed inset-0 flex items-center justify-center z-50"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
-      <div className="relative bg-black bg-opacity-30 p-8 rounded-lg shadow-lg max-w-sm w-full">
+      <div className="relative border-2 border-gray-400 backdrop-blur-sm bg-black/40 p-8 rounded-lg shadow-lg max-w-sm w-full">
         <button
           onClick={onRequestClose}
-          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+          className="absolute top-2 right-2 text-gray-400 hover:text-white"
           aria-label="Close"
         >
           <svg

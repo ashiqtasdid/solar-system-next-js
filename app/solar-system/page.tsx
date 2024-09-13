@@ -1,12 +1,12 @@
 "use client";
 
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { Canvas, useThree, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Text } from "@react-three/drei";
 import Planet from "@/components/Planet";
 import Moon from "@/components/Moon";
 import OrbitLine from "@/components/OrbitLine";
 import Belt from "@/components/Belt";
-import { Suspense, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import Stars from "@/components/Stars";
 import mercuryTexture from "@/components/mercurymap.jpg";
 import marsTexture from "@/components/marsmap1k.jpg";
@@ -16,8 +16,12 @@ import jupiterTexture from "@/components/jupitermap.jpg";
 import saturnTexture from "@/components/saturnmap.jpg";
 import uranusTexture from "@/components/uranusmap.jpg";
 import neptuneTexture from "@/components/neptunemap.jpg";
+import sunTexture from "@/components/sunmap.jpg";
+
 import { useRouter } from "next/navigation";
 import * as THREE from "three";
+import { TextureLoader } from "three";
+import { StaticImageData } from 'next/image';
 
 const CameraControls = ({ position }: { position: [number, number, number] }) => {
 
@@ -31,6 +35,31 @@ const CameraControls = ({ position }: { position: [number, number, number] }) =>
   });
   return null;
 };
+const Sun = () => {
+  const texture = useLoader(
+    TextureLoader,
+    typeof sunTexture === "string"
+      ? sunTexture
+      : (sunTexture as StaticImageData)?.src
+  );
+  const sunRef = useRef<THREE.Mesh>(null!);
+
+  useFrame(() => {
+    if (sunRef.current) {
+      sunRef.current.rotation.y += 0.01; // adjust the rotation speed as needed
+    }
+  });
+
+  return (
+    <mesh ref={sunRef}>
+      <sphereGeometry args={[5, 32, 32]} />
+      <meshStandardMaterial
+        map={texture || undefined}
+        color={!texture ? "yellow" : undefined}
+      />
+    </mesh>
+  );
+};
 
 const SolarSystem = () => {
 
@@ -39,7 +68,8 @@ const SolarSystem = () => {
   const router = useRouter();
   const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([0, 60, 150]);
   const [view, setView] = useState<'default' | 'top'>('default');
-
+  // const texture = useLoader(TextureLoader, typeof sunTexture === 'string' ? sunTexture : (sunTexture as StaticImageData)?.src);
+  
   const handleClick = (position: [number, number, number]) => {
     // Adjust camera position based on current view
     if (view === 'default') {
@@ -75,15 +105,19 @@ const SolarSystem = () => {
         camera={{ position: cameraPosition, fov: 75 }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.9} />
           <pointLight position={[0, 0, 0]} intensity={2} />
 
           {/* Planets */}
           <group onClick={() => handleClick([0, 0, 0])}>
-            <mesh>
-              <sphereGeometry args={[5, 32, 32]} />
-              <meshBasicMaterial color="yellow" />
-            </mesh>
+            <Sun/>
+          {/* <mesh>
+        <sphereGeometry args={[5, 32, 32]} />
+        <meshStandardMaterial
+          map={texture || undefined} 
+          color={!texture ? "yellow" : undefined}
+        />
+      </mesh> */}
             <Text position={[0, 6, 0]} fontSize={1} color="white">
               Sun
             </Text>

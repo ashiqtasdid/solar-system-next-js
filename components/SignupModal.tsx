@@ -40,11 +40,11 @@ const SignupModal: React.FC<SignupModalProps> = ({ isOpen, onRequestClose, onSig
       className="fixed inset-0 flex items-center justify-center z-50"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50"
     >
-      <div className="relative bg-black bg-opacity-30 p-8 rounded-lg shadow-lg max-w-sm w-full">
+      <div className="relative border-2 border-gray-400 backdrop-blur-sm bg-black/40 p-8 rounded-lg shadow-lg max-w-sm w-full">
         {/* Close Icon */}
         <button
           onClick={onRequestClose}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-200"
+          className="absolute top-2 right-2 text-gray-400 hover:text-white"
           aria-label="Close"
         >
           <svg
