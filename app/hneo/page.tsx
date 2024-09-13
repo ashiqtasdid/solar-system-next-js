@@ -1,6 +1,6 @@
   "use client";
 
-  import { Canvas } from "@react-three/fiber";
+  import { Canvas, useLoader } from "@react-three/fiber";
   import { OrbitControls, Text } from "@react-three/drei";
   import Planet from "@/components/Planet";
   import Moon from "@/components/Moon";
@@ -18,6 +18,9 @@
   import saturnTexture from "@/components/saturnmap.jpg";
   import uranusTexture from "@/components/uranusmap.jpg";
   import neptuneTexture from "@/components/neptunemap.jpg";
+  import sunTexture from "@/components/sunmap.jpg";
+  import { TextureLoader } from "three";
+import { StaticImageData } from "next/image";
 
   const SolarSystem = () => {
     const moonSpeed: number = 250;
@@ -38,6 +41,12 @@
     const handleBackClick = () => {
       router.back(); // Navigate back to the previous page
     };
+    const texture = useLoader(
+      TextureLoader,
+      typeof sunTexture === "string"
+        ? sunTexture
+        : (sunTexture as StaticImageData)?.src
+    );
 
     return (
       <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
@@ -50,9 +59,12 @@
             <pointLight position={[0, 0, 0]} intensity={2} />
 
             <mesh>
-              <sphereGeometry args={[5, 32, 32]} />
-              <meshBasicMaterial color="yellow" />
-            </mesh>
+          <sphereGeometry args={[5, 32, 32]} />
+          <meshStandardMaterial
+            map={texture || undefined}
+            color={!texture ? "yellow" : undefined}
+          />
+        </mesh>
             <Text position={[0, 6, 0]} fontSize={1} color="white">
               Sun
             </Text>

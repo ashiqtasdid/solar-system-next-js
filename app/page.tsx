@@ -16,11 +16,11 @@ const Banner: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center rounded-xl"
         style={{ backgroundImage: "url('/assets/Space_Race_Classroom_Banner.png')" }}
       >
-        <div className="absolute inset-0 bg-blue-950 blur-2xl bg-opacity-60 rounded-xl"></div>
+        <div className="absolute inset-0 bg-blue-950/60 backdrop-blur-sm bg-opacity-60 rounded-xl"></div>
       </div>
       <div className="relative flex flex-col md:flex-row items-center pt-4 md:pb-0 justify-between px-4 md:px-6 h-full">
         <div className="flex-1 text-center pb-6 md:text-left">
-          <h1 className="text-4xl   text-white mb-2 ">
+          <h1 className="text-4xl text-white mb-2 ">
           Embark on an epic adventure with our latest game,
           </h1>
           <h2 className="text-xl md:text-2xl -my-1 md:-my-3 font-bold text-white mb-4">
@@ -87,16 +87,16 @@ const Home: React.FC = () => {
             >
               <p className="text-center">Your Gateway to Solar System Knowledge</p>
             </motion.div>
-            <div className="flex justify-between gap-10 h-[100%] w-[100%] items-center mt-20 px-20">
+            <div className="flex flex-col md:flex-row flex-wrap items-center justify-center justify-between gap-10 h-[25rem] xl:h-full w-[100%] items-center mt-20 px-20">
               <motion.div
-                className="flex flex-col justify-between h-[19rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
+                className="flex flex-col justify-between h-full w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 }}
               >
-                <div className="text-white">
-                  <h1 className="text-3xl pb-2">Hazardous Asteroids</h1>
-                  <p>
+                <div className="text-white h-full overflow-y-hidden">
+                  <h1 className="text-lg md:text-2xl 2xl:text-3xl pb-2">Hazardous Asteroids</h1>
+                  <p className="text-base">
                     Hazardous asteroids, or Potentially Hazardous Asteroids
                     (PHAs), are space objects that come close enough to Earth to
                     pose a potential risk of collision. These asteroids are
@@ -117,14 +117,14 @@ const Home: React.FC = () => {
 
               {/* 3D Live Solar System Card */}
               <motion.div
-                className="flex flex-col justify-between h-[19rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
+                className="flex flex-col justify-between h-full w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.3 }}
               >
-                <div className="text-white">
-                  <h1 className="text-3xl pb-2">Solar System</h1>
-                  <p>
+                <div className="text-white h-full overflow-y-hidden">
+                  <h1 className="text-lg md:text-2xl 2xl:text-3xl pb-2">Solar System</h1>
+                  <p className="text-sm lg:text-base">
                     The Solar System is a collection of celestial bodies,
                     including the Sun, eight planets, their moons, and various
                     smaller objects such as asteroids, comets, and dwarf
@@ -145,14 +145,14 @@ const Home: React.FC = () => {
 
               {/* Satellite Explorer Card */}
               <motion.div
-                className="flex flex-col justify-between h-[19rem] w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
+                className="flex flex-col justify-between h-full w-96 bg-gray-900 bg-opacity-50 p-5 rounded-sm ring-slate-700 border border-gray-600"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="text-white">
-                  <h1 className="text-3xl pb-2">Satellite</h1>
-                  <p>
+                <div className="text-white h-full overflow-y-hidden">
+                  <h1 className="text-lg md:text-2xl 2xl:text-3xl pb-2">Satellite</h1>
+                  <p className="text-sm lg:text-base">
                     A satellite is an object that orbits around a larger
                     celestial body, like a planet or star, due to the
                     gravitational pull of that body. Satellites can be natural,
